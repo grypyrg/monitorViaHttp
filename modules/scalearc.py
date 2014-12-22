@@ -1,5 +1,7 @@
 # scalearc module for monitorViaHttp
 
+# version 0.2
+# 2014 Dec 2 - Kenny Gryp - <gryp@dakin.be>
 # version 0.1
 # 2014 Dec 19 - frederic descamps - <lefred.descamps@gmail.com>
 #
