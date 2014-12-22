@@ -19,7 +19,7 @@
 #        BAD if there is no 1 primary and no 1 secondary
 #
 # check for license
-#   http://127.0.0.1:8888/servername/scalearc?type=license&days=313131
+#   http://127.0.0.1:8888/servername/scalearc?type=license&days=31
 #
 #        BAD if license expire in less than 31 days
 #
@@ -38,7 +38,6 @@ import os
 import json
 import urllib2
 import datetime
-from dateutil.parser import parse
 
 apikey_folder = "/tmp/"
 
@@ -161,7 +160,7 @@ def hacheck(s, content):
         return
 
 def licensecheck(s, content):
-    lic_date = parse(content["data"]["license_expires_on"])
+    lic_date = datetime.datetime.strptime(content["data"]["license_expires_on"], "%b/%d/%Y")
     difference = lic_date - datetime.datetime.now()
     if difference.days < 31:
         s.do_BAD_HEAD()
